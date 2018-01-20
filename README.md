@@ -2,7 +2,8 @@
 
 dit clone https://github.com/nicolasdet/zend.git
 
-cd zend/
+cd zend
+
 composer-update
 
 docker-compose up -d
