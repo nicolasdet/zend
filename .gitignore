@@ -1,0 +1,8 @@
+vendor/
+data/cache/*
+composer.lock
+.vagrant/
+config/development.config.php
+!data/cache/.gitkeep
+phpunit.xml
+*.lock

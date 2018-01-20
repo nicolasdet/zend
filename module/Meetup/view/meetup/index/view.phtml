@@ -1,0 +1,33 @@
+<div class="jumbotron">
+	<a class="" href="<?= $this->url('meetup') ?>">
+	   <button class="btn btn-default">
+	    	retour a la liste des meetups
+	   </button>
+   </a>
+<h1 class="titre_jumbotron"> <?= $this->meetup->getTitle() ?> </h1>
+<br />
+<br />
+
+<p> 
+<?= $this->meetup->getDescription() ?>
+</p>
+<br />
+date de début : <?= $this->meetup->getDateDebut()->format('d-m-Y') ?>
+<br />
+<br />
+date de fin : <?= $this->meetup->getDateFin()->format('d-m-Y') ?>
+<br />
+<br />
+
+    <a href="<?= $this->url('meetup/view'); ?>?id=<?= $meetup->getId() ?>">
+     <button class="btn btn-info "> modifier l'evenement</button>
+    </a>
+<br />
+<br />
+     <a href="<?= $this->url('meetup/delete'); ?>?id=<?= $meetup->getId() ?>">
+     <button class="btn btn-danger "> supprimer l'evenement</button>
+    </a>
+
+</div>
+
+

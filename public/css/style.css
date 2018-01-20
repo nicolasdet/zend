@@ -1,6 +1,7 @@
 body {
     padding-top: 60px;
     padding-bottom: 40px;
+    background-image: url('../img/meeting.jpg');
 }
 
 .zf-green {
@@ -30,4 +31,43 @@ div.container a.navbar-brand > img {
     display: inline;
     margin-right: 4px;
     margin-top: -2px;
+}
+
+.jumbotron {
+    background-color: #e1e1e1 !important;
+}
+.titre_jumbotron {
+    text-align: center;
+}
+a {
+    color: white;
+}
+.bouton_meetup {
+    font-size: 2em;
+}
+.bouton_container {
+    width: 100%;
+    text-align: center;
+}
+
+.container_meetup {
+    display: flex;
+    justify-content: space-between;
+    overflow: scroll;
+    width: 100%;
+    padding: 0;
+}
+
+.list_meetup {
+    margin: 0 25px;
+    list-style-type: none;
+    border: 1px solid black;
+    padding: 2%;
+    min-width: 250px;
+}
+
+.button_view_meetup {
+    margin-top: 25px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
 }

@@ -6,6 +6,7 @@ namespace Meetup\Entity;
 
 use Ramsey\Uuid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
+use \DateTime;
 
 /**
  * Class Meetup
@@ -13,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Attention : Doctrine génère des classes proxy qui étendent les entités, celles-ci ne peuvent donc pas être finales !
  *
  * @package Application\Entity
- * @ORM\Entity(repositoryClass="\Meetup\Repository\FilmRepository")
+ * @ORM\Entity(repositoryClass="\Meetup\Repository\MeetupRepository")
  * @ORM\Table(name="meetup")
  */
 class Meetup
@@ -35,20 +36,31 @@ class Meetup
     private $description = '';
 
      /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime")
      */
     private $date_debut = '';
 
      /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime")
      */
     private $date_fin = '';
-
-    public function __construct(string $title, string $description = '', string $date_debut, string $date_fin)
+    
+    public function __construct(string $title, string $description = '', datetime $date_debut, datetime $date_fin)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
         $this->description = $description;
+        $this->date_debut = $date_debut;
+        $this->date_fin = $date_fin;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getId() : string
+    {
+        return $this->id;
     }
 
     /**
@@ -69,22 +81,22 @@ class Meetup
         $this->description = $description;
     }
 
-        public function getDateDebut() : string
+        public function getDateDebut() : datetime
     {
         return $this->date_debut;
     }
 
-    public function setDateDebut(string $date_debut) : void
+    public function setDateDebut(datetime $date_debut) : void
     {
         $this->date_debut = $date_debut;
     }
 
-        public function getDateFin() : string
+        public function getDateFin() : datetime
     {
         return $this->date_fin;
     }
 
-    public function setDdateFin(string $date_fin) : void
+    public function setDdateFin(datetime $date_fin) : void
     {
         $this->date_fin = $date_fin;
     }
