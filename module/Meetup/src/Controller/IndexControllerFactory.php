@@ -6,6 +6,7 @@ namespace Meetup\Controller;
 
 use Meetup\Entity\Meetup;
 use Meetup\Form\MeetupForm;
+use Meetup\Form\MeetupUpdateForm;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 
@@ -13,9 +14,9 @@ final class IndexControllerFactory
 {
     public function __invoke(ContainerInterface $container) : IndexController
     {
-        $meetupRepository = $container->get(EntityManager::class)->getRepository(Meetup::class);
-        $meetupForm = $container->get(MeetupForm::class);
+        $filmRepository = $container->get(EntityManager::class)->getRepository(Film::class);
+        $filmForm = $container->get(MeetupForm::class);
 
-        return new IndexController($meetupRepository, $meetupForm);
+        return new IndexController($filmRepository, $filmForm);
     }
 }
