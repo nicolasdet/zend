@@ -23,14 +23,11 @@ final class MeetupRepository extends EntityRepository
         $this->getEntityManager()->flush($meetup);
     }
 
-<<<<<<< Updated upstream
-=======
     public function update($meetup) : void
     {
         $this->getEntityManager()->persist($meetup);
         $this->getEntityManager()->flush($meetup);
     }
->>>>>>> Stashed changes
     public function createMeetupFromNameAndDescriptionDate(string $name, string $description, datetime $date_debut, datetime $date_fin)
     {
 

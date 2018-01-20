@@ -25,10 +25,18 @@ final class IndexController extends AbstractActionController
      */
     private $meetupForm;
 
-    public function __construct(FilmRepository $filmRepository, MeetupForm $filmForm)
+
+    /**
+     * @var meetupForm
+     */
+    private $meetupUpdateForm;
+
+    public function __construct(MeetupRepository $meetupRespository, MeetupForm $meetupForm, MeetupUpdateForm $meetupUpdateForm)
     {
-        $this->filmRepository = $filmRepository;
-        $this->filmForm = $filmForm;
+        $this->meetupRespository = $meetupRespository;
+        $this->meetupForm = $meetupForm;
+        $this->meetupUpdateForm = $meetupUpdateForm;
+
     }
      //----------------------------------------------------------------
     public function indexAction()
@@ -38,6 +46,40 @@ final class IndexController extends AbstractActionController
         ]);
     }
 
+     //----------------------------------------------------------------
+    public function deleteAction()
+    {
+
+         $request = $this->getRequest();
+         $meetup = null;
+        if ($request->isGet()) {
+           $get = $request->getQuery();
+           $meetup =  $this->meetupRespository->find($get['id']);
+
+           if(isset($meetup) && !empty($meetup)) {
+            $this->meetupRespository->delete($meetup);
+           }
+        }
+
+        return $this->redirect()->toRoute('meetup');
+    }
+
+
+    //----------------------------------------------------------------
+   public function viewAction()
+    {
+         $request = $this->getRequest();
+         $meetup = null;
+        if ($request->isGet()) {
+           $get = $request->getQuery();
+           $meetup =  $this->meetupRespository->find($get['id']);
+        }
+
+        return new ViewModel([
+            'meetup' => $meetup,
+        ]);
+    }
+     //----------------------------------------------------------------
     public function addAction()
     {
         $form = $this->meetupForm;

@@ -14,9 +14,10 @@ final class IndexControllerFactory
 {
     public function __invoke(ContainerInterface $container) : IndexController
     {
-        $filmRepository = $container->get(EntityManager::class)->getRepository(Film::class);
-        $filmForm = $container->get(MeetupForm::class);
+        $meetupRepository = $container->get(EntityManager::class)->getRepository(Meetup::class);
+        $meetupForm = $container->get(MeetupForm::class);
+        $meetupUpdateForm = $container->get(MeetupUpdateForm::class);
 
-        return new IndexController($filmRepository, $filmForm);
+        return new IndexController($meetupRepository, $meetupForm, $meetupUpdateForm);
     }
 }

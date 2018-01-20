@@ -31,6 +31,33 @@ return [
                             ],
                         ],
                     ],
+                    'view' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/view',
+                            'defaults' => [
+                                'action'     => 'view',
+                            ],
+                        ],
+                    ],
+                    'delete' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/delete',
+                            'defaults' => [
+                                'action'     => 'delete',
+                            ],
+                        ],
+                    ],
+                    'update' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/update',
+                            'defaults' => [
+                                'action'     => 'update',
+                            ],
+                        ],
+                    ],
                 ],
 
             ],
@@ -51,6 +78,8 @@ return [
         'template_map' => [
             'meetup/index/index' => __DIR__ . '/../view/meetup/index/index.phtml',
             'meetup/index/add' => __DIR__ . '/../view/meetup/index/add.phtml',
+            'meetup/index/view' => __DIR__ . '/../view/meetup/index/view.phtml',
+            'meetup/index/update' => __DIR__ . '/../view/meetup/index/update.phtml',
         ],
     ],
     'doctrine' => [
