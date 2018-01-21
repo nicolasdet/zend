@@ -4,12 +4,19 @@ dit clone https://github.com/nicolasdet/zend.git
 
 cd zend
 
-composer-update
+composer-update   (il faut php 7.1)
 
 docker-compose up -d
 
 docker-compose run --rm zf php vendor/bin/doctrine-module orm:schema-tool:update
 
+
+
+0.0.0.0:8080 = site (zf)
+
+0.0.0.0:8081 = phpmyadmin 
+
+sur windows on remplacera 0.0.0.0 par son adresse ip 
 
 
 
