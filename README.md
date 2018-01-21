@@ -30,7 +30,7 @@ car elle héritant toute de meetup.
 
 -- l'entity meetup qui accepte un dateTime avec son entityRespository
 
-le respository qui prend les methode add, delete et create.  (update bientot)
+-- le EntityRespository qui prend les methode add, delete et create, update 
 
 
 -- le controller avec les actions ( crud Actions...)
@@ -39,8 +39,6 @@ le respository qui prend les methode add, delete et create.  (update bientot)
 
 j'ai ajouter les vérification des dates dans meetupForm avec la fonction de callback !!
 
-
--- L'update fonctionne !! 
 
 on a donc un CRUD complet avec la vérificationd des champs. 
 
