@@ -129,8 +129,6 @@ final class IndexController extends AbstractActionController
            }
         
 
-      
-
         /* @var $request Request */
         $request = $this->getRequest();
         if ($request->isPost()) {
@@ -139,13 +137,24 @@ final class IndexController extends AbstractActionController
             if ($form->isValid()) {
 
 
-                $date_d = new DateTime($form->getData()->getDateDebut());
+                //$date_d = new DateTime($form->getData()->getDateDebut());
                 //$date_f = new DateTime($form->getData()['date_fin']);
 
+                $date_d = $meetup->getDateDebut();
+                $date_f = $meetup->getDateFin();
 
-                $meetup->setTitle('nouveau titre');
+                $date_d = new DateTime($date_d);
+                $date_f = new DateTime($date_f);
 
-                
+                $meetup->setDateDebut($date_d);
+                $meetup->setDdateFin($date_f);
+
+                //var_dump($meetup);
+
+                //exit();
+
+
+                //$meetup->setTitle('nouveau titre');
 
                 $this->meetupRespository->update($meetup);
                 return $this->redirect()->toRoute('meetup');

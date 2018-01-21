@@ -32,8 +32,20 @@ le respository qui prend les methode add, delete et create.  (update bientot)
 
 j'ai ajouter les vérification des dates dans meetupForm avec la fonction de callback !!
 
-(meetUpdateForm n'est pas a prendre en compte, je fait des test car j'ai du mal avec l'update. )
 
-## presque terminer :
+-- L'update fonctionne !! 
 
-il me reste l'update j'ai encore un tout dernier problem de conversion au niveau des date ( on passe de String a dateTime ) fin je vais voir tout ça cet apremidi.  (dimanche)
+on a donc un CRUD complet avec la vérificationd des champs. 
+
+## a faire :
+
+il reste du code a nétoyer car aillant coder vite et fait beaucoup, beaucoup  de test et de bidouillage pour comprendre j'ai écrit beaucoup de code qui pourrais étre innutile. je vais nettoyer le code des que j'ai le temp !
+
+
+## futur : 
+
+j'aimerais bien metre en place un service d'authentification avec un user qui serais stoquer en base qui pourrais crée un meetup (étre organisateur)
+puis assisté a d'autres meetup (simple visiteur)
+
+les organisateur seraient les seul a pouvoir modifier leur meetup. 
+
