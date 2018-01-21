@@ -9,6 +9,7 @@ use Zend\Form\Form;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Zend\Validator\StringLength;
 use Zend\Validator\Callback;
+use \DateTime;
 
 class MeetupForm extends Form implements InputFilterProviderInterface
 {
@@ -74,6 +75,41 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                             'max' => 15,
                         ],
                     ],
+                ],
+            ],
+            'description' => [
+                'validators' => [
+                    [
+                        'name' => StringLength::class,
+                        'options' => [
+                            'min' => 2,
+                            'max' => 15,
+                        ],
+                    ],
+
+                ],
+            ],
+            'date_debut' => [
+                'validators' => [
+                        [
+                        'name' => Callback::class,
+                        'options' => [
+                            'callback' => function($value, $context) {
+                                $debut = new DateTime($value);
+                                $fin = new DateTime($context['date_fin']);
+                                
+                                if($debut < $fin) {
+                                    return $value;
+                                }
+                                return false;
+                                
+                            },
+                            'messages' => [
+                               Callback::INVALID_VALUE => 'la date de début doit étre inférieur a la date de fin',
+                            ]
+                        ],
+                    ],
+
                 ],
             ],
         ];

@@ -15,15 +15,25 @@ docker-compose run --rm zf php vendor/bin/doctrine-module orm:schema-tool:update
 
 ### Info Nicolas :
 
-j'ai pas tout a fait terminer
-
-actuellement on peut afficher tout les meetup, en crée, en supprimer mais j'ai encore quelque difficulté sur l'update
-
-ce qui me pose problém c'est les intéraction entre doctrine Orm et le form de zend. 
-j'ai pas fait la validation car je n'ais pas encore tout a fait compris comment la métre en place ( comment apeller une fonction de callback ). 
-
-j'ai du mal a faire le rapprochement entre l'éxemple que l'on a fait en cour et la doc de ZF qui est bien mais pas organiser...
+## ce qui est fait :
 
 
+-- les routes, child route pour view, add, delete, update
+car elle héritant toute de meetup. 
 
-Je finirais demain (dimanche) ! 
+-- l'entity meetup qui accepte un dateTime avec son entityRespository
+
+le respository qui prend les methode add, delete et create.  (update bientot)
+
+
+-- le controller avec les actions ( crud Actions...)
+
+-- le service form qui est injecter via la factory (comme dans l'example du cour)
+
+j'ai ajouter les vérification des dates dans meetupForm avec la fonction de callback !!
+
+(meetUpdateForm n'est pas a prendre en compte, je fait des test car j'ai du mal avec l'update. )
+
+## presque terminer :
+
+il me reste l'update j'ai encore un tout dernier problem de conversion au niveau des date ( on passe de String a dateTime ) fin je vais voir tout ça cet apremidi.  (dimanche)
